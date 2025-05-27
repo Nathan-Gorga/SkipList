@@ -8,11 +8,17 @@ int main(){
 
     Node * head = createLinkedListFromArray(arr,size);
 
+    
+    Sentinel s = createSentinel(1);
 
-    printList(head,"head");
+    s.lane[0] = head;
+    
+    printList(s.lane[0],"L0");
 
+    
+    
+    
+    
     freeNodes(head);
-
-
     return 0;
 }

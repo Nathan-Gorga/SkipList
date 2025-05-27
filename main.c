@@ -1,6 +1,8 @@
-
-
+#include "./includes/includes.h"
+#include "./list/list.h"
 #include "./utils/utils.h"
+#include "./node/node.h"
+#include "./sentinel/sentinel.h"
 
 int main(){
     const unsigned int size = 10;

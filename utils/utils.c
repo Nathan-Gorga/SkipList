@@ -25,3 +25,47 @@ void freeAll(Sentinel s){
 bool coinFlip(){
     return (rand() % 2) == 0;
 }
+
+
+void printArrows(const int size){
+    for(int i = 0; i < size; i++){
+        
+        printf(" |   ");
+    }
+    printf("\n");
+    for(int i = 0; i < size; i++){
+
+        printf(" v   ");
+    }
+    printf("\n");
+   
+    
+}
+
+void printSkipList(Sentinel s){
+    const int maxLanes = s.numLanes;
+    for(int i = 0; i < maxLanes; i++){
+        printf(" L%d |",i);
+    }
+    printf("\n");
+
+    printArrows(maxLanes);
+
+    Node * curr = s.lane[0];
+    while(curr != NULL){
+        for(int i = 0; i < maxLanes; i++){
+            if(i +1 <= curr->numLanes){
+                printf(" %d   ",curr->val);
+            }else{
+                printf(" |  ");
+            }
+        }
+        printf("\n");
+        printArrows(maxLanes);
+        curr = curr->next[0];
+    }
+
+    for(int i = 0; i < maxLanes; i++){
+        printf("NULL ");
+    }
+}

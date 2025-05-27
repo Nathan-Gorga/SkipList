@@ -20,7 +20,8 @@ int main(){
     
     if(buildSkipList(&s) == 1) return 1;
     
-    printList(s.lane[1],1,"L1");
+    printSkipList(s);
+    
     
     freeAll(s);
 

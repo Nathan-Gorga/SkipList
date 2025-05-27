@@ -5,6 +5,9 @@
 #include "./sentinel/sentinel.h"
 
 int main(){
+    srand(time(NULL));
+
+
     const unsigned int size = 10;
     unsigned int arr[] = {0,1,2,3,4,5,6,7,8,9};
 
@@ -15,16 +18,11 @@ int main(){
 
     s.lane[0] = head;
     
-    printList(s.lane[0],"L0");
+    if(buildSkipList(&s) == 1) return 1;
     
-    if (sentinelPlusOneLane(&s) == 1){
-        fprintf(stderr, "ERROR : Reallocation of memory to sentinel lanes has failed\n");
-        return 1;
-    } 
+    printList(s.lane[1],1,"L1");
+    
+    freeAll(s);
 
-    printList(s.lane[1], "L1");
-    
-    freeNodes(head);
-    freeSentinel(s);
     return 0;
 }

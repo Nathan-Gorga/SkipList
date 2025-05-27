@@ -2,7 +2,7 @@
 #include "../node/node.h"
 #include "../sentinel/sentinel.h"
 
-void printList(Node * list, char * name){
+void printList(Node * list, const unsigned int lane,char * name){
     Node * curr = list;
     
     printf("%s : ", name);
@@ -10,16 +10,18 @@ void printList(Node * list, char * name){
     while(curr != NULL){
         printf("%d -> ",curr->val);
     
-        curr = curr->next[0];
+        curr = curr->next[lane];
     }
     
     printf("NULL\n");
 }
 
-void freeAll(Sentinel * s){
-    for(int i = 0; i < s->numLanes; i++)
-    {
-        freeNodes(s->lane[i]);
-    }
-    freeSentinel(*s);
+void freeAll(Sentinel s){
+    freeNodes(s.lane[0]);
+    freeSentinel(s);
+}
+
+
+bool coinFlip(){
+    return (rand() % 2) == 0;
 }

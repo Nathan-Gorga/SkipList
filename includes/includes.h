@@ -7,6 +7,7 @@
 
 typedef struct Node{
     unsigned int val;
+    unsigned int numLanes;
     struct Node ** next;// array of pointers to the next node depending on the lane on which the node is
 }Node;
 

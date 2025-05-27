@@ -4,5 +4,7 @@
 
 void printList(Node * list, char * name);
 
+void freeAll(Sentinel * s);
+
 
 #endif

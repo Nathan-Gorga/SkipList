@@ -20,21 +20,14 @@ void freeSentinel(Sentinel s){
 }
 
 
-unsigned int changeLaneToSentinel(const unsigned int numLanes, Sentinel * s){ // 0 : success, 1 : fail
-    Node **temp = realloc(s->lane, numLanes * sizeof(Node*));
-    if (temp == NULL) {
-        return 1;
-    }
-
+unsigned int sentinelPlusOneLane(Sentinel * s){ // 0 : success, 1 : fail
     
-    unsigned int oldNumLanes = s->numLanes;
-    s->lane = temp;
-    s->numLanes = numLanes;
+    Node **temp = realloc(s->lane, sizeof(Node*) * (s->numLanes + 1));
+   
+    if (temp == NULL) return 1;
 
-    
-    for (unsigned int i = oldNumLanes; i < numLanes; i++) {
-        s->lane[i] = NULL;
-    }
+    s->lane[s->numLanes] = NULL;
+    s->numLanes++;
 
     return 0;
 }

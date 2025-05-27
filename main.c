@@ -15,22 +15,15 @@ int main(){
 
     s.lane[0] = head;
     
-    
-    
     printList(s.lane[0],"L0");
     
-    if (changeLaneToSentinel(2, &s) == 1){
+    if (sentinelPlusOneLane(&s) == 1){
         fprintf(stderr, "ERROR : Reallocation of memory to sentinel lanes has failed\n");
         return 1;
     } 
 
-    
     printList(s.lane[1], "L1");
     
-
-    
-    
-
     freeNodes(head);
     freeSentinel(s);
     return 0;

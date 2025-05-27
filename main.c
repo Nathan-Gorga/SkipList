@@ -9,7 +9,7 @@ int main(){
     Node * head = createLinkedListFromArray(arr,size);
 
 
-    printList(head,"name");
+    printList(head,"head");
 
     freeNodes(head);
 

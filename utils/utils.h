@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-typedef struct{
+typedef struct Node{
     unsigned int val;
     struct Node ** next;// array of pointers to the next node depending on the lane on which the node is
 }Node;

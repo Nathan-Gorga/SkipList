@@ -5,4 +5,9 @@
 
 Sentinel createSentinel(const unsigned int numLanes);
 
+void freeSentinel(Sentinel s);
+
+unsigned int changeLaneToSentinel(const unsigned int numLanes, Sentinel * s); // 0 : success, 1 : fail
+
+
 #endif

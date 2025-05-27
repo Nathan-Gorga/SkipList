@@ -1,4 +1,5 @@
 #include "sentinel.h"
+#include "../utils/utils.h"
 
 Sentinel createSentinel(const unsigned int numLanes){
     Sentinel temp;
@@ -12,4 +13,28 @@ Sentinel createSentinel(const unsigned int numLanes){
     }
 
     return temp;
+}
+
+void freeSentinel(Sentinel s){
+    free(s.lane);
+}
+
+
+unsigned int changeLaneToSentinel(const unsigned int numLanes, Sentinel * s){ // 0 : success, 1 : fail
+    Node **temp = realloc(s->lane, numLanes * sizeof(Node*));
+    if (temp == NULL) {
+        return 1;
+    }
+
+    
+    unsigned int oldNumLanes = s->numLanes;
+    s->lane = temp;
+    s->numLanes = numLanes;
+
+    
+    for (unsigned int i = oldNumLanes; i < numLanes; i++) {
+        s->lane[i] = NULL;
+    }
+
+    return 0;
 }

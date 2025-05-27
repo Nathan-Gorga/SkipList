@@ -18,10 +18,16 @@ int main(){
 
     s.lane[0] = head;
     
-    if(buildSkipList(&s) == 1) return 1;
+
     
+
+    if(callBuildSkipList(&s) == 1) {
+            
+        return 1;
+
+    }
     printSkipList(s);
-    
+
     
     freeAll(s);
 

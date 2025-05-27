@@ -68,4 +68,5 @@ void printSkipList(Sentinel s){
     for(int i = 0; i < maxLanes; i++){
         printf("NULL ");
     }
+
 }

@@ -30,6 +30,7 @@ unsigned int nodePlusOneLane(Node * n){
 
     if(testNULL == NULL) return 1;
 
+    n->next = testNULL;
     n->next[n->numLanes] = NULL;
     n->numLanes++;
     return 0;

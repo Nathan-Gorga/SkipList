@@ -6,7 +6,7 @@
 #include <stdbool.h>
 #include <time.h>
 
-
+enum error_codes { NODE_ADD_LANE = 1, SENTINEL_ADD_LANE};
 
 typedef struct Node{
     unsigned int val;

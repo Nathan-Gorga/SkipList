@@ -25,7 +25,8 @@ unsigned int sentinelPlusOneLane(Sentinel * s){ // 0 : success, 1 : fail
     Node **temp = realloc(s->lane, sizeof(Node*) * (s->numLanes + 1));
    
     if (temp == NULL) return 1;
-
+    
+    s->lane = temp;
     s->lane[s->numLanes] = NULL;
     s->numLanes++;
 

@@ -50,6 +50,7 @@ Node * searchAlgo(const int key, Sentinel *s){// for now does, the job
 
     
     while(lane >= 0){
+        
         if(curr == NULL) lane--;
         
         else if(curr->val == key) return curr;

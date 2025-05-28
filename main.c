@@ -13,7 +13,7 @@ int main(){
 
     LARGE_INTEGER freq, start, end;
     
-    const unsigned int size = 5000;
+    const unsigned int size = 100;
     unsigned int * arr = malloc(sizeof(int) * size);
     for(int i =0; i < size; i++){
         arr[i] = i;
@@ -21,7 +21,7 @@ int main(){
     
     Node * head = createLinkedListFromArray(arr,size);
     
-    const int findThisNum = rand() % (size+1);
+    const int findThisNum = rand() % (size);
     printf("looking for %d...\n",findThisNum);
 
     QueryPerformanceFrequency(&freq);

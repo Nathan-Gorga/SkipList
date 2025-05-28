@@ -1,8 +1,12 @@
 #include "./includes/includes.h"
-#include "./list/list.h"
+#include "./build/list/list.h"
 #include "./utils/utils.h"
-#include "./node/node.h"
-#include "./sentinel/sentinel.h"
+#include "./build/node/node.h"
+#include "./build/sentinel/sentinel.h"
+
+#include "./algo/search/search.h"
+
+
 
 int main(){
     srand(time(NULL));

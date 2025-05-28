@@ -1,5 +1,5 @@
 #include "sentinel.h"
-#include "../utils/utils.h"
+#include "../../utils/utils.h"
 
 Sentinel createSentinel(const unsigned int numLanes){
     Sentinel temp;

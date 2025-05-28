@@ -1,6 +1,6 @@
 #include "utils.h"
-#include "../node/node.h"
-#include "../sentinel/sentinel.h"
+#include "../build/node/node.h"
+#include "../build/sentinel/sentinel.h"
 
 void printList(Node * list, const unsigned int lane,char * name){
     Node * curr = list;

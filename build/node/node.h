@@ -2,7 +2,7 @@
 #define NODE_H
 
 
-#include "../includes/includes.h"
+#include "../../includes/includes.h"
 
 Node* createNode(const unsigned int val, const unsigned int numPtrs);
 

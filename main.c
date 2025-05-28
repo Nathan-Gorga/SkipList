@@ -17,20 +17,23 @@ int main(){
 
     Node * head = createLinkedListFromArray(arr,size);
 
-    
-    Sentinel s = createSentinel(1);
 
-    s.lane[0] = head;
-    
+    Sentinel s;
+    if(sentinel(head, &s) == 1) return 1;
 
-    
 
-    if(callBuildSkipList(&s) == 1) {
-            
-        return 1;
-
-    }
     printSkipList(s);
+
+    Node * keyNode = searchAlgo(6,&s);
+    if(keyNode == NULL){
+        printf("key not present in list\n");
+    }else{
+        printf("key %d found \n",keyNode->val);
+    }
+
+
+
+
 
     
     freeAll(s);

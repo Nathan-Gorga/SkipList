@@ -15,6 +15,7 @@ typedef struct Node{
 }Node;
 
 typedef struct Sentinel{
+    
     unsigned int numLanes;
     Node ** lane;
 }Sentinel;

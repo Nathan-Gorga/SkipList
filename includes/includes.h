@@ -7,6 +7,7 @@
 #include <windows.h>
 #include <time.h>
 #include <math.h>
+#include <limits.h>
 
 enum error_codes { NODE_ADD_LANE = 1, SENTINEL_ADD_LANE};
 

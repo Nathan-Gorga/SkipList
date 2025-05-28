@@ -69,3 +69,31 @@ unsigned int callBuildSkipList(Sentinel *s){
     return 0;
 
 }
+
+
+
+unsigned int fileToListNode(Sentinel * s, const int val, const int numLanes){
+    Node * temp = createNode(val, numLanes);
+    if(temp == NULL) return 1;
+    
+
+    while(numLanes > s->numLanes){
+        sentinelPlusOneLane(s);
+    }
+
+
+    for(int i =0; i < numLanes; i++){//add it to the end of every lane it belongs to
+        if(s->lane[i] == NULL) s->lane[i] = temp;
+        else{
+
+            Node* curr = s->lane[i];
+
+            while(curr->next[i] != NULL){
+                curr = curr->next[i];
+            }
+
+            curr->next[i] = temp;
+        }
+    }
+    return 0;
+}

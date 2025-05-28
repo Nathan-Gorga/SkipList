@@ -3,7 +3,6 @@
 #include "../../includes/includes.h"
 
 
-Node* rSearchAlgo(const int key, Sentinel * s);
 
 
 Node * searchAlgo(const int key, Sentinel *s);

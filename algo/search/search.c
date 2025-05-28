@@ -42,7 +42,7 @@ Node* rSearchAlgo(const int key, Sentinel * s){
     return recurSearch(key, maxLanes-1,s->lane[maxLanes-1],s);
 }
 
-Node * searchAlgo(const int key, Sentinel *s){
+Node * searchAlgo(const int key, Sentinel *s){// for now does, the job
     const unsigned int maxLanes = s->numLanes;
     int lane = maxLanes - 1;
 

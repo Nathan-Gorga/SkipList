@@ -12,8 +12,8 @@ int main(){
     srand(time(NULL));
 
 
-    const unsigned int size = 10;
-    unsigned int arr[] = {0,1,2,3,4,5,6,7,8,9};
+    const unsigned int size = 20;
+    unsigned int arr[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19};
 
     Node * head = createLinkedListFromArray(arr,size);
 
@@ -24,11 +24,11 @@ int main(){
 
     printSkipList(s);
 
-    Node * keyNode = searchAlgo(6,&s);
+    Node * keyNode = searchAlgo(10,&s);
     if(keyNode == NULL){
-        printf("key not present in list\n");
+        printf("\nkey not present in list\n");
     }else{
-        printf("key %d found \n",keyNode->val);
+        printf("\nkey %d found \n",keyNode->val);
     }
 
 

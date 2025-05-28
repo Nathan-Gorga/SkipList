@@ -42,6 +42,12 @@ void printArrows(const int size){
     
 }
 
+void printSpaces(const int num){
+    for(int i =0; i < num; i++){
+        printf(" ");
+    }
+}
+
 void printSkipList(Sentinel s){
     const int maxLanes = s.numLanes;
     for(int i = 0; i < maxLanes; i++){
@@ -55,10 +61,15 @@ void printSkipList(Sentinel s){
     while(curr != NULL){
         for(int i = 0; i < maxLanes; i++){
             if(i +1 <= curr->numLanes){
-                printf("\033[0;91m %d   \033[0m",curr->val);
+                printf("\033[0;91m %d\033[0m",curr->val);
             }else{
-                printf(" |   ");
+                printf(" |");
             }
+            const int defaultSpaces = 3;
+            int numspaces = 0;
+            if(curr->val != 0)
+                numspaces = log10(curr->val);
+            printSpaces(defaultSpaces-numspaces);
         }
         printf("\n");
         printArrows(maxLanes);

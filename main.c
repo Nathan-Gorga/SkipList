@@ -5,7 +5,7 @@
 #include "./build/sentinel/sentinel.h"
 #include "./algo/search/search.h"
 #include "./memory/file/file.h"
-
+#include "./trial/trial.h"
 
 
 int main(){
@@ -13,7 +13,7 @@ int main(){
     
 
     // create link list
-    const unsigned int size = 10;
+    const unsigned int size = 20;
 
     unsigned int * arr = malloc(sizeof(int) * size);
 
@@ -26,18 +26,31 @@ int main(){
 
     
     // create sentinel
-    Sentinel s;
+    Sentinel s1,s2;
     
-    if(sentinel(head, &s) == 1) return 1;
+    if(sentinel(head, &s1) == 1) return 1;
+    srand(time(NULL));
+    if(sentinel(head, &s2) == 1) return 1;
+
+    printSkipList(s1);
+    printSkipList(s2);
+
+
+    
+   
+
+
+    Sentinel * winner = contest(&s1,&s2,size);
 
     char path[] ="C:\\Users\\gorga\\CodeProjects\\SkipList\\memory\\file\\storage\\skiplist.txt";
-    if(serializeSkipList(&s,path) == 1) return 1;
+    if(serializeSkipList(winner,path) == 1) return 1;
 
 
 
 
-    freeAll(s,arr);
-
+    freeAll(*winner,arr);
+    freeSentinel(s1);
+    freeSentinel(s2);
     
     return 0;
 }

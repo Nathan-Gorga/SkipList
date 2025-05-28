@@ -11,32 +11,69 @@
 int main(){
     srand(time(NULL));
 
-
-    const unsigned int size = 20;
-    unsigned int arr[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19};
-
+    LARGE_INTEGER freq, start, end;
+    
+    const unsigned int size = 5000;
+    unsigned int * arr = malloc(sizeof(int) * size);
+    for(int i =0; i < size; i++){
+        arr[i] = i;
+    }
+    
     Node * head = createLinkedListFromArray(arr,size);
+    
+    const int findThisNum = rand() % (size+1);
+    printf("looking for %d...\n",findThisNum);
 
-
+    QueryPerformanceFrequency(&freq);
+    
+    
     Sentinel s;
+    
     if(sentinel(head, &s) == 1) return 1;
 
+    QueryPerformanceCounter(&start);
+    
+    Node * keyNode = searchAlgo(findThisNum,&s);
 
-    printSkipList(s);
-
-    Node * keyNode = searchAlgo(10,&s);
     if(keyNode == NULL){
+
         printf("\nkey not present in list\n");
+
     }else{
+
         printf("\nkey %d found \n",keyNode->val);
+
     }
 
+    QueryPerformanceCounter(&end);
 
+    double elapsed_ms = (double)(end.QuadPart - start.QuadPart) * 1000.0 / freq.QuadPart;
 
-
-
+    printf("time taken for skiplist(%d) search algo : %.3f ms\n",size, elapsed_ms);
     
-    freeAll(s);
+    QueryPerformanceCounter(&start);
+
+
+    Node * keyNodeL = linearSearch(findThisNum,&s);
+
+    if(keyNodeL == NULL){
+
+        printf("\nkey not present in list\n");
+
+    }else{
+
+        printf("\nkey %d found \n",keyNodeL->val);
+
+    }
+
+    QueryPerformanceCounter(&end);
+
+    elapsed_ms = (double)(end.QuadPart - start.QuadPart) * 1000.0 / freq.QuadPart;
+
+    printf("time taken for linear list(%d) search algo : %.3f ms\n",size, elapsed_ms);
+
+
+    freeAll(s,arr);
 
     return 0;
 }

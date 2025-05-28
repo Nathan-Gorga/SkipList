@@ -72,3 +72,18 @@ Node * searchAlgo(const int key, Sentinel *s){// for now does, the job
     }
     return NULL;
 }
+
+
+Node * linearSearch(const int key, Sentinel * s){
+    Node * curr = s->lane[0];
+
+    while(curr != NULL){
+        if(curr->val == key) return curr;
+        curr = curr->next[0];
+    }
+
+    return NULL;
+
+
+
+}

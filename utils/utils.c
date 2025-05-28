@@ -16,9 +16,10 @@ void printList(Node * list, const unsigned int lane,char * name){
     printf("NULL\n");
 }
 
-void freeAll(Sentinel s){
+void freeAll(Sentinel s, unsigned int * arr){
     freeNodes(s.lane[0]);
     freeSentinel(s);
+    free(arr);
 }
 
 

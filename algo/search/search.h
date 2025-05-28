@@ -8,5 +8,8 @@ Node* rSearchAlgo(const int key, Sentinel * s);
 
 Node * searchAlgo(const int key, Sentinel *s);
 
+Node * linearSearch(const int key, Sentinel * s);
+
+
 
 #endif

@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "includes.h": "c",
-    "sentinel.h": "c"
+    "sentinel.h": "c",
+    "stdbool.h": "c"
   }
 }

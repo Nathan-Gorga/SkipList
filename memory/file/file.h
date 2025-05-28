@@ -4,8 +4,8 @@
 #include "../../includes/includes.h"
 #include "../../build/list/list.h"
 
-unsigned int serializeSkipList(Sentinel * s);
+unsigned int serializeSkipList(Sentinel * s,char * path);
 
-unsigned int deserializeSkipList(Sentinel * s);
+unsigned int deserializeSkipList(Sentinel * s,char * path);
 
 #endif

@@ -10,34 +10,34 @@
 
 int main(){
     srand(time(NULL));
-
     
+
+    // create link list
     const unsigned int size = 10;
+
     unsigned int * arr = malloc(sizeof(int) * size);
+
     for(int i =0; i < size; i++){
         arr[i] = i;
     }
     
     Node * head = createLinkedListFromArray(arr,size);
     
+
     
-    
+    // create sentinel
     Sentinel s;
     
     if(sentinel(head, &s) == 1) return 1;
 
-    if(serializeSkipList(&s) == 1) return 1;
+    char path[] ="C:\\Users\\gorga\\CodeProjects\\SkipList\\memory\\file\\storage\\skiplist.txt";
+    if(serializeSkipList(&s,path) == 1) return 1;
 
-    printSkipList(s);
+
+
+
     freeAll(s,arr);
 
-    Sentinel s1 = createSentinel(1);
-    
-    if(deserializeSkipList(&s1) == 1) return 1;
-
-    printSkipList(s1);
-
-    freeSentinel(s1);
     
     return 0;
 }

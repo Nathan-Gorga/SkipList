@@ -1,7 +1,7 @@
 #include "file.h"
 
-unsigned int serializeSkipList(Sentinel * s){
-    FILE* file = fopen("skiplist.txt", "w");
+unsigned int serializeSkipList(Sentinel * s, char * path){
+    FILE* file = fopen(path, "w");
     if (file == NULL) {
         perror("Cannot open file for writing");
         return 1;
@@ -18,8 +18,8 @@ unsigned int serializeSkipList(Sentinel * s){
 }
 
 
-unsigned int deserializeSkipList(Sentinel * s){
-    FILE* file = fopen("skiplist.txt","r");
+unsigned int deserializeSkipList(Sentinel * s,char * path){
+    FILE* file = fopen(path,"r");
     if(file == NULL){
         perror("Cannot open file for reading");
         return 1;

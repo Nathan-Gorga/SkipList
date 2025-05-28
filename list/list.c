@@ -1,6 +1,7 @@
 #include "list.h"
 #include "../sentinel/sentinel.h"
 #include "../utils/utils.h"
+#include "../list/list.h"
 
 
 Node* createLinkedListFromArray(unsigned int * arr, const unsigned int size){
@@ -24,7 +25,8 @@ unsigned int buildSkipList(Sentinel * s){
 
         if(sentinelPlusOneLane(s) == 1) return SENTINEL_ADD_LANE;
 
-        Node * curr = s->lane[counter];
+        Node * curr= s->lane[counter]->next[counter]; // guarantees there are no duplicate lanes
+      
         Node * Lane_ptr = NULL;
         
         while(curr != NULL){
@@ -44,8 +46,11 @@ unsigned int buildSkipList(Sentinel * s){
         }
         counter++;
     }
+    
     return 0;
 }
+
+
 
 
 
@@ -53,11 +58,14 @@ unsigned int callBuildSkipList(Sentinel *s){
     const int temp = buildSkipList(s);
     switch(temp){
         case NODE_ADD_LANE:
-            printf("ERROR : failed to add lane to node\n");
+            printf("ERROR : failed to add lane to node ()\n");
             return 1;
         case SENTINEL_ADD_LANE:
             printf("ERROR : failed to add lane to sentinel\n");
             return 1;        
     }
+    s->numLanes--;
+
     return 0;
+
 }

@@ -3,6 +3,10 @@
 #include "../../includes/includes.h"
 
 
-Node* searchAlgo(const int key, Sentinel * s);
+Node* rSearchAlgo(const int key, Sentinel * s);
+
+
+Node * searchAlgo(const int key, Sentinel *s);
+
 
 #endif
